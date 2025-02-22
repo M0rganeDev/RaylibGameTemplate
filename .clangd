@@ -1,4 +1,0 @@
-CompileFlags:
-	Add:
-		- "-I/nix/store/l0rmn0p9hb50r2fijwx257yywddk7imf-raylib-5.0/include/"
-		- "-I/nix/store/b1y2fk2ycm3rf8xaynlxznppryqfh1wa-libcxx-18.1.8-dev/include/c++/v1/"
