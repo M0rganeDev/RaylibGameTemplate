@@ -75,3 +75,5 @@ android.*
 # Misc
 .direnv/
 .direnv/*
+.clangd
+.envrc
