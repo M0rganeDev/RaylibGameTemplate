@@ -18,7 +18,7 @@ _Copyright (c) 2014-2025 Ramon Santamaria ([@raysan5](https://twitter.com/raysan
 
 Currently, I only support Linux for building. If you use Nix, use the provided flake.nix and run `make run` to start the template project
 
-Windows building will be available one day, maybe.
+Windows building will be available one day, maybe. I'm not even sure if it works on Windows
 
 ### License
 
