@@ -29,7 +29,8 @@ Texture2D	load_texture(std::string filename)
 		return (texture->get());
 
 	// if nothing goes wrong, will be deleted
-	// automatically
+	// automatically by remove_unused_textures
+	// once a room system / entity system will be made
 	texture = new TextureWrapper();
 	texture->set_m_Name(filename);
 	texture->set_m_Texture(LoadTexture(std::string("resources/" + filename).c_str()));

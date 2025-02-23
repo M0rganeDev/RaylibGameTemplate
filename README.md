@@ -12,6 +12,8 @@ This template has been created to be used with raylib (www.raylib.com) and it's 
 
 _Copyright (c) 2014-2025 Ramon Santamaria ([@raysan5](https://twitter.com/raysan5))_
 
+note (MorganeDev) : This fork of the template include some utils for my own use provided as-is with no guarantee that it will work or be useful in any way, shape or form ans is mostly a playground for me to do weird shit with a language i'm learning.
+
 -----------------------------------
 
 ### Build
