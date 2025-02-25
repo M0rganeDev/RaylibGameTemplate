@@ -48,8 +48,8 @@ void		unload_texture(std::string name)
 	{
 		UnloadTexture(texture->get());
         auto it = std::find(textures.begin(), textures.end(), texture);
-        if (it != textures.end())
-            textures.erase(it);
+		textures.erase(it);
+		delete texture;
         texture = NULL;
 		printf("Deleted texture %s\n", name.c_str());
 	}
@@ -78,7 +78,12 @@ void		unload_texture(Texture2D name)
 
 void		remove_unused_textures(void)
 {
-	// @TODO :
-	// every few frames and when the program shutdowns, look through textures
-	// and free any texture unused and free every TextureWrappers.
+	for (TextureWrapper *texture : textures)
+	{
+		UnloadTexture(texture->get());
+		auto it = std::find(textures.begin(), textures.end(), texture);
+		textures.erase(it);
+		delete texture;
+        texture = NULL;
+	}
 }

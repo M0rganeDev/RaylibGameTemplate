@@ -1,5 +1,7 @@
 #include "TextureManager.hpp"
 #include "raylib.h"
+#include "rlImGui.h"
+#include "imgui.h"
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -8,6 +10,8 @@ int	main(int argc, char **argv, char **envp)
 	InitWindow(1280, 720, "Hello World !");
 	SetTargetFPS(60);
 
+	rlImGuiSetup(true);
+
 	texture = load_texture("missing.png");
 
 	while (!WindowShouldClose())
@@ -15,9 +19,21 @@ int	main(int argc, char **argv, char **envp)
 		BeginDrawing();
 		ClearBackground(DARKGRAY);
 		DrawTexture(texture, 256, 256, WHITE);
+		rlImGuiBegin();
+		bool open = true;
+		open = true;
+		if (ImGui::Begin("Test Window", &open))
+		{
+			ImGui::TextUnformatted("Hello World");
+
+			rlImGuiImage(&texture);
+		}
+		ImGui::End();
+		rlImGuiEnd();
     	EndDrawing();
 	}
-	unload_texture("missing.png");
+	remove_unused_textures();
+	rlImGuiShutdown();
 	CloseWindow();
 	return (0);
 }

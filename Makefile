@@ -9,6 +9,6 @@ run: all
 
 clean:
 	rm -rf build
-	rm vgcore.*
+	rm -f vgcore.*
 
 .PHONY: all clean run

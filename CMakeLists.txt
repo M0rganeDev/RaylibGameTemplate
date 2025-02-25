@@ -25,6 +25,12 @@ FetchContent_MakeAvailable(raylib)
 
 # Our Project
 add_executable(${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME} PRIVATE third_party/imgui)
+target_include_directories(${PROJECT_NAME} PRIVATE third_party/rlImGui)
+
+add_subdirectory(third_party/imgui)
+add_subdirectory(third_party/rlImGui)
 add_subdirectory(src)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
