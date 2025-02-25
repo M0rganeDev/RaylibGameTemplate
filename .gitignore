@@ -77,3 +77,4 @@ android.*
 .direnv/*
 .clangd
 .envrc
+imgui.ini
