@@ -71,6 +71,7 @@ CompileFlags:
 	Add:
 		- "-I${pkgs.raylib}/include/"
 		- "-I${pkgs.libcxx.dev}/include/c++/v1/"
+		- "-I./includes"
 		- "-I./third_party/imgui"
 		- "-I./third_party/rlImGui"
 EOL
