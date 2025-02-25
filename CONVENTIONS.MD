@@ -23,22 +23,28 @@ Functions params | lower_case | `screen_width`, `screen_height`
 Ternary Operator | (condition) ? result1 : result2 | `printf("Value is 0: %s", (value == 0) ? "yes" : "no");`
 
 Other conventions:
- - All defined variables are ALWAYS initialized
- - Four spaces are used, instead of TABS
+ - Indentation is made using tab characters set as 4 spaces
+ - Variable declarations must be made at the start of the scope, if possible
+ 	- with the exception of const / static variables, variables must not be initialised on the same line they are declared
+	- an empty line should separate the variable declarations and the body of the function
+ - Functions should be kept at the minimal possible size and only do one thing
+ 	- While the actual good length is to the discretion of the one writting the code, an upper bound of 60 lines is enough for most cases
+	- In the same idea, it is recommanded to avoid lines that are too long. An upper bound of 80 characters per line is enough for most cases (with tabs being 4 characters)
+ - Variables outside of classes/ functions must be static and not usable in other C files
  - Trailing spaces are always avoided
- - Control flow statements are followed **by a space**:
+ - Control flow statements are followed **by a space**
  - C keywords must be followed by a space
  - Variable / function declaration must be aligned with tabs
- - Use tab characters as 4 spaces
+ 	- Same goes for back-slashes for multilines macros
  - Getters / Setters must be declared and implemented in the class declaration
  - Multiline macros must be used to reduce boilerplate, not obfuscate code. if it execute several lines, it must not end with a ;
  - Comments must explain code decisions, not what the code do. Exception for multiline macros that can get really confusing sometime
 
 Macro exemple :
 ```c
-#define FOO \
-	bar();
-	alice();
+#define FOO 	\
+	bar();		\
+	alice();	\
 	bob()
 ```
 

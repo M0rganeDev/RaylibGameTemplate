@@ -1,37 +1,42 @@
 #include "TextureManager.hpp"
+#include "event.hpp"
+#include "macros.hpp"
 #include "raylib.h"
 #include "rlImGui.h"
-#include "imgui.h"
+#include "player.hpp"
 
-int	main(int argc, char **argv, char **envp)
+static Player *player;
+
+void	on_render(RenderWorldEvent *event)
 {
-	Texture2D	texture;
+	player->draw();
+	DrawFPS(0, 0);
+}
 
+int		main(int argc, char **argv, char **envp)
+{
 	InitWindow(1280, 720, "Hello World !");
 	SetTargetFPS(60);
-
 	rlImGuiSetup(true);
 
-	texture = load_texture("missing.png");
+	LOG(INFO, "hello world !");
+	REGISTER_LISTENER(on_render, RenderWorldEvent);
+	player = new Player();
 
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-		ClearBackground(DARKGRAY);
-		DrawTexture(texture, 256, 256, WHITE);
-		rlImGuiBegin();
-		bool open = true;
-		open = true;
-		if (ImGui::Begin("Test Window", &open))
-		{
-			ImGui::TextUnformatted("Hello World");
 
-			rlImGuiImage(&texture);
-		}
-		ImGui::End();
+		ClearBackground(DARKGRAY);
+		fire_event(new RenderWorldEvent());
+
+		rlImGuiBegin();
+		fire_event(new RenderImguiEvent());
 		rlImGuiEnd();
+
     	EndDrawing();
 	}
+	delete player;
 	remove_unused_textures();
 	rlImGuiShutdown();
 	CloseWindow();
