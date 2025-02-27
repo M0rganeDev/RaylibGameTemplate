@@ -71,9 +71,9 @@ CompileFlags:
 	Add:
 		- "-I${pkgs.raylib}/include/"
 		- "-I${pkgs.libcxx.dev}/include/c++/v1/"
-		- "-I./includes"
-		- "-I./third_party/imgui"
-		- "-I./third_party/rlImGui"
+		- "-I${builtins.getEnv "PWD"}/includes"
+		- "-I${builtins.getEnv "PWD"}/third_party/imgui"
+		- "-I${builtins.getEnv "PWD"}/third_party/rlImGui"
 EOL
 			'';
           };

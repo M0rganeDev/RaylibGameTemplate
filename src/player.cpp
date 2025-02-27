@@ -1,5 +1,5 @@
 #include "player.hpp"
-#include "TextureManager.hpp"
+#include "pa_texture_manager.hpp"
 #include <raylib.h>
 
 Player::Player()
